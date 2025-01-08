@@ -1397,6 +1397,13 @@ class LogisticRegressionEstimator(with_metaclass(abc.ABCMeta, BaseEstimator)):
 
         return prob
 
+    def predict_proba(self, X):
+        prob = self.predict_probability(X)
+        prob_neg = np.ones((np.shape(prob)[0],1)) - prob
+        prob = np.concatenate((prob_neg, prob),axis=1)
+
+        return prob
+
     def decision_function(self, X):
         """Predict confidence scores for samples.
 

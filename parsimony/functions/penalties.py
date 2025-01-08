@@ -1999,7 +1999,8 @@ class LinearVariableConstraint(properties.IndicatorFunction,
         # This is the cut-off point on my computer for where it is no more
         # feasible to compute the inverse. After this, the time to compute the
         # inverse grows very quickly.
-        p_limit = 1000
+        # p_limit = 1000
+        p_limit = 10000
 
         if self.penalty_start > 0:
             x_ = x[self.penalty_start:, :]
